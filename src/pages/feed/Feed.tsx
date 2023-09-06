@@ -1,8 +1,10 @@
 import { ButtonGradient } from "../../components/ButtonGradient";
 import { Header } from "../../components/Header";
 import { PostBox } from "../../components/PostBox";
+import { useProtect } from "../../hooks/useProtect";
 
 export function FeedPage() {
+  useProtect();
   return (
     <>
       <Header />
