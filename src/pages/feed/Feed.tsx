@@ -16,7 +16,12 @@ export function FeedPage() {
         </div>
       </form>
       <div className="flex flex-col-reverse gap-3 w-[22.5rem] mb-24">
-        <PostBox userName=" Henrique" content="primeiro post" />
+        <PostBox
+          userName=" Henrique"
+          content="primeiro post"
+          likeQuantity={3}
+          commentQuantity={9}
+        />
       </div>
     </main>
   );
