@@ -37,6 +37,14 @@ export function LoginPage() {
     } catch (error) {
       setErrorMessage("Ocorreu um erro inesperado.");
 
+      if (!/^[0-9a-zA-Z$*&@#]{4,}$/.test(input["password"])) {
+        setErrorMessage("A senha deve conter no mínimo 4 caracteres!");
+      }
+
+      if (!/^[\w.-]+@[\w-]+.\w{2,4}$/.test(input["email"])) {
+        setErrorMessage("Insira um e-mail válido");
+      }
+
       if (error === "E-mail e/ou senha inválido(s)") {
         setErrorMessage("E-mail e/ou senha inválido(s)");
       }
