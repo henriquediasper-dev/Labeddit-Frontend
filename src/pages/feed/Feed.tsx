@@ -2,9 +2,34 @@ import { ButtonGradient } from "../../components/ButtonGradient";
 import { Header } from "../../components/Header";
 import { PostBox } from "../../components/PostBox";
 import { useProtect } from "../../hooks/useProtect";
+import { PostInterface, getPostsService } from "../../services/FeedServices";
+import { useState, useEffect } from "react";
 
 export function FeedPage() {
+  const [posts, setPosts] = useState<PostInterface[]>([]);
+
   useProtect();
+
+  const token = localStorage.getItem("token");
+
+  const getPosts = async () => {
+    try {
+      const headers = {
+        headers: {
+          Authorization: token,
+        },
+      };
+      const response = await getPostsService(headers);
+      console.log(response);
+      setPosts(response || []);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getPosts();
+  }, []);
+
   return (
     <>
       <Header />
@@ -21,12 +46,15 @@ export function FeedPage() {
           </div>
         </form>
         <div className="flex flex-col-reverse gap-3 w-[22.5rem] mb-24">
-          <PostBox
-            userName=" Henrique"
-            content="primeiro post"
-            likeQuantity={3}
-            commentQuantity={9}
-          />
+          {posts.map((post) => (
+            <PostBox
+              key={post.id}
+              userName={post.creator.name}
+              content={post.postContent}
+              likeQuantity={post.likes - post.dislikes}
+              commentQuantity={post.comments}
+            />
+          ))}
         </div>
       </main>
     </>
