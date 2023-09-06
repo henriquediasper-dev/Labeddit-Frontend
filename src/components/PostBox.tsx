@@ -5,9 +5,16 @@ import comments from "../assets/comments.svg";
 interface Props {
   userName: string;
   content: string;
+  likeQuantity: number;
+  commentQuantity?: number;
 }
 
-export function PostBox({ userName, content }: Props) {
+export function PostBox({
+  userName,
+  content,
+  likeQuantity,
+  commentQuantity,
+}: Props) {
   return (
     <div className="bg-neutral-50 border-neutral-200 border flex-col h-fit px-3 py-2 rounded-xl gap-3 justify-start items-start inline-flex ">
       <p className="text-center text-neutral-500 text-xs ">
@@ -19,7 +26,7 @@ export function PostBox({ userName, content }: Props) {
           <button>
             <img src={upArrow} alt="imagem de seta para cima ao dar like" />
           </button>
-          <p>1.2k</p>
+          <p>{likeQuantity}</p>
           <button>
             {" "}
             <img
@@ -28,12 +35,15 @@ export function PostBox({ userName, content }: Props) {
             />
           </button>
         </div>
-        <div className="flex border border-gray-200 p-2 gap-3 items-center rounded-3xl">
-          <button>
-            <img src={comments} />
-          </button>
-          <p>200</p>
-        </div>
+        {commentQuantity === 0 ||
+          (commentQuantity && (
+            <div className="flex border border-gray-200 p-2 gap-3 items-center rounded-3xl">
+              <button>
+                <img src={comments} />
+              </button>
+              <p>{commentQuantity}</p>
+            </div>
+          ))}
       </div>
     </div>
   );
