@@ -35,15 +35,14 @@ export function PostBox({
             />
           </button>
         </div>
-        {commentQuantity === 0 ||
-          (commentQuantity && (
-            <div className="flex border border-gray-200 p-2 gap-3 items-center rounded-3xl">
-              <button>
-                <img src={comments} />
-              </button>
-              <p>{commentQuantity}</p>
-            </div>
-          ))}
+        {(commentQuantity === 0 || commentQuantity) && (
+          <div className="flex border border-gray-200 p-2 gap-3 items-center rounded-3xl">
+            <button>
+              <img src={comments} />
+            </button>
+            <p>{commentQuantity}</p>
+          </div>
+        )}
       </div>
     </div>
   );
