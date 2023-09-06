@@ -2,11 +2,15 @@ interface Props {
   type: string;
   placeholder: string;
   name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function Input({ type, placeholder, name }: Props) {
+export function Input({ type, placeholder, name, value, onChange }: Props) {
   return (
     <input
+      value={value}
+      onChange={onChange}
       type={type}
       placeholder={placeholder}
       name={name}
