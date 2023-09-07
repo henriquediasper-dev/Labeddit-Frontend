@@ -26,8 +26,8 @@ export function SignupPage() {
     try {
       const body = {
         name: "name" in input ? input["name"] : "",
-        email: input["email"],
-        password: input["password"],
+        email: "email" in input ? input["email"] : "",
+        password: "password" in input ? input["password"] : "",
       };
       await signupServices(body);
 
@@ -37,10 +37,16 @@ export function SignupPage() {
     } catch (error) {
       setErrorMessage("Ocorreu um erro inesperado.");
 
-      if (!/^[0-9a-zA-Z$*&@#]{4,}$/.test(input["password"])) {
+      if (
+        !/^[0-9a-zA-Z$*&@#]{4,}$/.test(
+          "password" in input ? input["password"] : ""
+        )
+      ) {
         setErrorMessage("A senha deve conter no mínimo 4 caracteres!");
       }
-      if (!/^[\w.-]+@[\w-]+.\w{2,4}$/.test(input["email"])) {
+      if (
+        !/^[\w.-]+@[\w-]+.\w{2,4}$/.test("email" in input ? input["email"] : "")
+      ) {
         setErrorMessage("Insira um e-mail válido");
       }
       if (error === "Email já existe") {

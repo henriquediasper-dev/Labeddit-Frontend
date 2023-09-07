@@ -13,15 +13,23 @@ export interface InterfaceSignup {
 
 type typeFormInput = InterfaceLogin | InterfaceSignup;
 
-export function useForm(initialData: typeFormInput) {
+interface ContentInterface {
+  content: string;
+}
+
+export function useForm(initialData: typeFormInput | ContentInterface) {
   const [input, setInput] = useState(initialData);
 
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeInput = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };
 
-  const clear = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const clear = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setInput(initialData);
   };

@@ -32,3 +32,36 @@ export async function getPostsService(headers: Headers) {
     }
   }
 }
+
+export async function likeOrDislikePostService(
+  headers: Headers,
+  body: { like: boolean },
+  id: string
+) {
+  try {
+    await axios.put<void>(`${baseUrl}/posts/${id}/like`, body, headers);
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      throw axiosError.response.data;
+    } else {
+      throw error;
+    }
+  }
+}
+
+export async function createPostService(
+  headers: Headers,
+  body: { content: string }
+) {
+  try {
+    await axios.post<void>(`${baseUrl}/posts`, body, headers);
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    if (axiosError.response) {
+      throw axiosError.response.data;
+    } else {
+      throw error;
+    }
+  }
+}
