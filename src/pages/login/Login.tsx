@@ -24,8 +24,8 @@ export function LoginPage() {
     e.preventDefault();
     try {
       const body = {
-        email: input["email"],
-        password: input["password"],
+        email: "email" in input ? input["email"] : "",
+        password: "password" in input ? input["password"] : "",
       };
       await loginServices(body);
 
@@ -37,11 +37,17 @@ export function LoginPage() {
     } catch (error) {
       setErrorMessage("Ocorreu um erro inesperado.");
 
-      if (!/^[0-9a-zA-Z$*&@#]{4,}$/.test(input["password"])) {
+      if (
+        !/^[0-9a-zA-Z$*&@#]{4,}$/.test(
+          "password" in input ? input["password"] : ""
+        )
+      ) {
         setErrorMessage("A senha deve conter no mínimo 4 caracteres!");
       }
 
-      if (!/^[\w.-]+@[\w-]+.\w{2,4}$/.test(input["email"])) {
+      if (
+        !/^[\w.-]+@[\w-]+.\w{2,4}$/.test("email" in input ? input["email"] : "")
+      ) {
         setErrorMessage("Insira um e-mail válido");
       }
 
@@ -72,14 +78,14 @@ export function LoginPage() {
           type="text"
           name="email"
           placeholder="E-mail"
-          value={input["email"]}
+          value={"email" in input ? input["email"] : ""}
           onChange={onChangeInput}
         />
         <Input
           type="password"
           name="password"
           placeholder="Senha"
-          value={input["password"]}
+          value={"password" in input ? input["password"] : ""}
           onChange={onChangeInput}
         />
         <div className="flex flex-col w-96 gap-6 mt-12">
