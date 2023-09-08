@@ -106,9 +106,9 @@ export function CommentsPage() {
 
         await createComment(body, header, params.postId || "");
 
+        clear(e);
         getPosts();
         getComments();
-        clear;
       } catch (error) {
         console.log(error);
       }
