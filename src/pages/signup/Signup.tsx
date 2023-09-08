@@ -111,7 +111,7 @@ export function SignupPage() {
             </p>
           </div>
 
-          <ButtonGradient text="Cadastrar" />
+          <ButtonGradient text="Cadastrar" type="submit" />
         </form>
       </main>
     </>

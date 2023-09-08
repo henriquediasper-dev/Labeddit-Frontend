@@ -3,7 +3,7 @@ import logo from "../../assets/logo.svg";
 import { ButtonGradient } from "../../components/ButtonGradient";
 import { Input } from "../../components/Input";
 import { InterfaceLogin, useForm } from "../../hooks/useForm";
-import { goToFeed } from "../../router/coordinator";
+import { goToFeed, goToSignup } from "../../router/coordinator";
 import { loginServices } from "../../services/LoginServices";
 import { useState } from "react";
 
@@ -89,11 +89,15 @@ export function LoginPage() {
           onChange={onChangeInput}
         />
         <div className="flex flex-col w-96 gap-6 mt-12">
-          <ButtonGradient text="Continuar" />
+          <ButtonGradient text="Continuar" type="submit" />
 
           <div className="h-px bg-gradient-to-r from-[#FF6489] to-[#F9B24E] w-96" />
 
-          <button className="text-[#FE7E02] w-96 h-12 border border-[#FE7E02] text-lg font-noto rounded-3xl">
+          <button
+            className="text-[#FE7E02] w-96 h-12 border border-[#FE7E02] text-lg font-noto rounded-3xl"
+            type="button"
+            onClick={() => goToSignup(navigate)}
+          >
             Crie uma conta!
           </button>
         </div>
