@@ -9,8 +9,14 @@ interface Props {
   content: string;
   likeQuantity: number;
   commentQuantity?: number;
-  likeOrDislikeFunction?: (postId: string, value: boolean) => void;
+  likeOrDislikeFunction?: (
+    postId: string,
+    value: boolean,
+    commentId?: string,
+    e?: React.MouseEvent<HTMLButtonElement>
+  ) => void;
   postId: string;
+  commentId?: string;
 }
 
 export function PostBox({
@@ -20,6 +26,7 @@ export function PostBox({
   commentQuantity,
   likeOrDislikeFunction,
   postId,
+  commentId,
 }: Props) {
   const navigate = useNavigate();
   return (
@@ -30,11 +37,17 @@ export function PostBox({
       <p className="break-all ">{content}</p>
       <div className="flex gap-[1rem] ">
         <div className="flex gap-[0.7rem] rounded-3xl border border-gray-200 items-center p-1">
-          <button onClick={() => likeOrDislikeFunction?.(postId, true)}>
+          <button
+            onClick={(e) => likeOrDislikeFunction?.(postId, true, commentId, e)}
+          >
             <img src={upArrow} alt="imagem de seta para cima ao dar like" />
           </button>
           <p>{likeQuantity}</p>
-          <button onClick={() => likeOrDislikeFunction?.(postId, false)}>
+          <button
+            onClick={(e) =>
+              likeOrDislikeFunction?.(postId, false, commentId, e)
+            }
+          >
             {" "}
             <img
               src={downArrow}

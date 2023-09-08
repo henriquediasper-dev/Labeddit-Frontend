@@ -92,7 +92,7 @@ export function FeedPage() {
               onChange={onChangeInput}
               value={"content" in input ? input["content"] : ""}
             />
-            <ButtonGradient text="postar" />
+            <ButtonGradient text="postar" type="submit" />
             <div className="mt-3 mb-[1.63rem] h-px bg-gradient-to-r from-[#FF6489] to-[#F9B24E]" />
           </div>
         </form>
