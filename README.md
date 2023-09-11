@@ -8,7 +8,7 @@ Labeddit é uma plataforma de rede social que nasceu da nossa aspiração de pro
 
 Este projeto foi construído a partir do zero, incluindo a criação das páginas de Login, Cadastro, Feed e Comentários de Posts. Além disso, para alimentar a plataforma, desenvolvemos nossa própria API personalizada, exclusivamente para este projeto.
 
-🚩 [Projeto Labeddit - Frontend - Backend](https://github.com/henriquediasper-dev/Labeddit-Backend)
+🚩 [Projeto Labeddit - Backend](https://github.com/henriquediasper-dev/Labeddit-Backend)
 
 ## Funcionalidades do projeto
 
@@ -26,9 +26,9 @@ Este projeto foi construído a partir do zero, incluindo a criação das página
 <img src="./src/assets/postcommentsPage.png" width="200"  />
 </div>
 
-## Link do surge
+## Link Labeddit
 
-![Link](https://henriquediasper-labeddit-project-fullstack.surge.sh/)
+https://henriquediasper-labeddit-project-fullstack.surge.sh/
 
 ## Comandos de instalação do projeto
 
