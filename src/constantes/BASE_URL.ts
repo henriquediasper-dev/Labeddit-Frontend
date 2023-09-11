@@ -1,1 +1,1 @@
-export const baseUrl = "http://127.0.0.1:3003";
+export const baseUrl = "https://labeddit-api-gtwv.onrender.com";
