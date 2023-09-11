@@ -26,9 +26,9 @@ Este projeto foi construído a partir do zero, incluindo a criação das página
 <img src="./src/assets/postcommentsPage.png" width="200"  />
 </div>
 
-## Link do surge
+## Link Labeddit
 
-![Link Labeddit](https://henriquediasper-labeddit-project-fullstack.surge.sh/)
+https://henriquediasper-labeddit-project-fullstack.surge.sh/
 
 ## Comandos de instalação do projeto
 
